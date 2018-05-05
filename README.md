@@ -1,13 +1,12 @@
-## osclasswizards (customize)
-### [osclasswizards](https://forums.osclass.org/themes/osclasswizards-free-responsive-bootstrap-theme/) theme
+## osclass OLA (customize)
+### [osclass](https://osclass.org) source
 > Custom settings, functions, plugins and more...
 
 ---
 
-### Ola Santorini
+### Ola Master
 
 - Custom banners with links  
-- Remove Region and City from posts  
 - Add Lat/Lon for posts  
 - Remove subcategories from search  
 - Fix search result "yamaha" wile search for "yam"
