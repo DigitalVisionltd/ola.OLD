@@ -10,3 +10,7 @@
 - Add Lat/Lon for posts  
 - Remove subcategories from search  
 - Fix search result "yamaha" wile search for "yam"
+
+### TODO
+- Add Lat/Lon on admin/moderator side
+
