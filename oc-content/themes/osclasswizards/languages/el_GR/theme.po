@@ -287,6 +287,9 @@ msgstr "Αλλαγή email"
 
 #: functions.php:317 functions.php:366 user-change_username.php:34
 #: user-change_username.php:39
+msgid "Change Username"
+msgstr "Αλλαγή ονόματος χρήστη"
+
 msgid "Change username"
 msgstr "Αλλαγή ονόματος χρήστη"
 
@@ -806,3 +809,15 @@ msgstr "http://www.osclass.org/"
 
 msgid "Osclass team"
 msgstr "Ομάδα του Osclass"
+
+msgid "Public Profile"
+msgstr "Δημόσιο προφίλ"
+
+msgid "Advanced Search"
+msgstr "Προχωρημένη αναζήτηση"
+
+msgid "Select a region"
+msgstr "Αναζήτηση περιοχής"
+
+msgid "Select a city"
+msgstr "Αναζήτηση πόλης"
