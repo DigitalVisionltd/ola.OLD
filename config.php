@@ -6,7 +6,7 @@
 define('MULTISITE', 0);
 
 /** MySQL database name for Osclass */
-define('DB_NAME', 'ola_2');
+define('DB_NAME', 'ola_3');
 
 /** MySQL database username */
 define('DB_USER', 'reporter');
