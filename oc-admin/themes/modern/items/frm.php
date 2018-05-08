@@ -247,7 +247,11 @@ function customPageHeader() { ?>
                             </div>
                             <div class="input-has-placeholder input-separate-top">
                                 <label><?php _e('City'); ?></label>
+                                <!-- /* kyr replace below line with kyr region line*/ --
                                 <?php ItemForm::city_text(); ?>
+                                <!-- /* kyr */ -->
+                                <!-- /* kyr default region */ -->
+                                <?php ItemForm::city_text(array('s_city' => 'Πάτρα')); ?>
                             </div>
                             <!-- /* kyr START disable city area */ --
                             <div class="input-has-placeholder input-separate-top">
