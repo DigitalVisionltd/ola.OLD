@@ -209,7 +209,7 @@ function customPageHeader() { ?>
                                     <!-- /* kyr START */ --
                                     <?php ItemForm::contact_name_text(); ?>
                                     <!-- /* kyr END */ -->
-                                    <?php ItemForm::contact_name_text(array('s_contact_name' => 'Mod')); ?>
+                                    <?php ItemForm::contact_name_text(array('s_contact_name' => 'Moderator')); ?>
                                 </div>
                                 <div class="input-has-placeholder input-separate-top">
                                     <label><?php _e('E-mail'); ?></label>
@@ -217,7 +217,7 @@ function customPageHeader() { ?>
                                     <?php ItemForm::contact_email_text(); ?>
                                     <?php ItemForm::contact_email_text(array('s_contact_email' => 'support@olapatra.gr')); ?>
                                     <!-- /* kyr END */ -->
-                                    <?php ItemForm::contact_email_text(array('s_contact_email' => 'ola@designisdesign.eu')); ?>
+                                    <?php ItemForm::contact_email_text(array('s_contact_email' => 'support@' . $_SERVER['HTTP_HOST'] . '')); ?>
                                 </div>
                                 <?php if(!$new_item) { ?>
                                 <div class="input-has-placeholder input-separate-top">
