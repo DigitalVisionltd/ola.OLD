@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: May 08, 2018 at 02:44 PM
+-- Generation Time: May 08, 2018 at 09:46 PM
 -- Server version: 10.1.32-MariaDB
 -- PHP Version: 7.2.5
 
@@ -19,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `ola_2`
+-- Database: `ola_3`
 --
 
 -- --------------------------------------------------------
@@ -43,7 +43,8 @@ CREATE TABLE `oc_t_admin` (
 --
 
 INSERT INTO `oc_t_admin` (`pk_i_id`, `s_name`, `s_username`, `s_password`, `s_email`, `s_secret`, `b_moderator`) VALUES
-(1, 'Administrator', 'admin', '$2y$15$ga3a7gAr31ytLYnUkxmi1uSKlIx58noyvoFplofbf4iOEPw70ERiC', 'ola@designisdesign.eu', NULL, 0);
+(1, 'Administrator', 'admin', '$2y$15$ga3a7gAr31ytLYnUkxmi1uSKlIx58noyvoFplofbf4iOEPw70ERiC', 'admin@ola.gr', NULL, 0),
+(2, 'Moderator', 'mod', '$2y$15$l81W28abDSYfsWL6uXjcv.zj57Cq7esMtxJ3EhyYa4.df8LKm/O/m', 'support@ola.gr', NULL, 1);
 
 -- --------------------------------------------------------
 
@@ -2829,7 +2830,7 @@ CREATE TABLE `oc_t_country_stats` (
 --
 
 INSERT INTO `oc_t_country_stats` (`fk_c_country_code`, `i_num_items`) VALUES
-('GR', 0);
+('GR', 1);
 
 -- --------------------------------------------------------
 
@@ -2848,7 +2849,7 @@ CREATE TABLE `oc_t_cron` (
 --
 
 INSERT INTO `oc_t_cron` (`e_type`, `d_last_exec`, `d_next_exec`) VALUES
-('HOURLY', '2018-05-08 16:46:32', '2018-05-08 17:46:00'),
+('HOURLY', '2018-05-08 23:45:08', '2018-05-09 00:45:00'),
 ('DAILY', '2018-05-08 13:09:22', '2018-05-09 13:09:00'),
 ('WEEKLY', '2018-05-08 13:09:22', '2018-05-15 13:09:00');
 
@@ -3072,6 +3073,180 @@ CREATE TABLE `oc_t_locations_tmp` (
   `e_type` enum('COUNTRY','REGION','CITY') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Dumping data for table `oc_t_locations_tmp`
+--
+
+INSERT INTO `oc_t_locations_tmp` (`id_location`, `e_type`) VALUES
+('510531', 'CITY'),
+('510532', 'CITY'),
+('510533', 'CITY'),
+('510534', 'CITY'),
+('510535', 'CITY'),
+('510536', 'CITY'),
+('510537', 'CITY'),
+('510538', 'CITY'),
+('510539', 'CITY'),
+('510540', 'CITY'),
+('510541', 'CITY'),
+('510542', 'CITY'),
+('510543', 'CITY'),
+('510544', 'CITY'),
+('510545', 'CITY'),
+('510546', 'CITY'),
+('510547', 'CITY'),
+('510548', 'CITY'),
+('510549', 'CITY'),
+('510550', 'CITY'),
+('510551', 'CITY'),
+('510552', 'CITY'),
+('510553', 'CITY'),
+('510554', 'CITY'),
+('510555', 'CITY'),
+('510556', 'CITY'),
+('510557', 'CITY'),
+('510558', 'CITY'),
+('510559', 'CITY'),
+('510560', 'CITY'),
+('510561', 'CITY'),
+('510562', 'CITY'),
+('510563', 'CITY'),
+('510564', 'CITY'),
+('510565', 'CITY'),
+('510566', 'CITY'),
+('510567', 'CITY'),
+('510568', 'CITY'),
+('510569', 'CITY'),
+('510570', 'CITY'),
+('510571', 'CITY'),
+('510572', 'CITY'),
+('510573', 'CITY'),
+('510574', 'CITY'),
+('510575', 'CITY'),
+('510576', 'CITY'),
+('510577', 'CITY'),
+('510578', 'CITY'),
+('510579', 'CITY'),
+('510580', 'CITY'),
+('510581', 'CITY'),
+('510582', 'CITY'),
+('510583', 'CITY'),
+('510584', 'CITY'),
+('510585', 'CITY'),
+('510586', 'CITY'),
+('510587', 'CITY'),
+('510588', 'CITY'),
+('510589', 'CITY'),
+('510590', 'CITY'),
+('510591', 'CITY'),
+('510592', 'CITY'),
+('510593', 'CITY'),
+('510594', 'CITY'),
+('510595', 'CITY'),
+('510596', 'CITY'),
+('510597', 'CITY'),
+('510598', 'CITY'),
+('510599', 'CITY'),
+('510600', 'CITY'),
+('510601', 'CITY'),
+('510602', 'CITY'),
+('510603', 'CITY'),
+('510604', 'CITY'),
+('510605', 'CITY'),
+('510606', 'CITY'),
+('510607', 'CITY'),
+('510608', 'CITY'),
+('510609', 'CITY'),
+('510610', 'CITY'),
+('510611', 'CITY'),
+('510612', 'CITY'),
+('510613', 'CITY'),
+('510614', 'CITY'),
+('510615', 'CITY'),
+('510616', 'CITY'),
+('510617', 'CITY'),
+('510618', 'CITY'),
+('510619', 'CITY'),
+('510620', 'CITY'),
+('510621', 'CITY'),
+('510622', 'CITY'),
+('510623', 'CITY'),
+('510624', 'CITY'),
+('510625', 'CITY'),
+('510626', 'CITY'),
+('510627', 'CITY'),
+('510628', 'CITY'),
+('510629', 'CITY'),
+('510630', 'CITY'),
+('510631', 'CITY'),
+('510632', 'CITY'),
+('510633', 'CITY'),
+('510634', 'CITY'),
+('510635', 'CITY'),
+('782699', 'REGION'),
+('782700', 'REGION'),
+('782701', 'REGION'),
+('782702', 'REGION'),
+('782703', 'REGION'),
+('782704', 'REGION'),
+('782705', 'REGION'),
+('782706', 'REGION'),
+('782707', 'REGION'),
+('782708', 'REGION'),
+('782709', 'REGION'),
+('782710', 'REGION'),
+('782711', 'REGION'),
+('782712', 'REGION'),
+('782713', 'REGION'),
+('782714', 'REGION'),
+('782715', 'REGION'),
+('782716', 'REGION'),
+('782717', 'REGION'),
+('782718', 'REGION'),
+('782719', 'REGION'),
+('782720', 'REGION'),
+('782721', 'REGION'),
+('782722', 'REGION'),
+('782723', 'REGION'),
+('782724', 'REGION'),
+('782725', 'REGION'),
+('782726', 'REGION'),
+('782727', 'REGION'),
+('782728', 'REGION'),
+('782729', 'REGION'),
+('782730', 'REGION'),
+('782731', 'REGION'),
+('782732', 'REGION'),
+('782733', 'REGION'),
+('782734', 'REGION'),
+('782735', 'REGION'),
+('782736', 'REGION'),
+('782737', 'REGION'),
+('782738', 'REGION'),
+('782739', 'REGION'),
+('782740', 'REGION'),
+('782741', 'REGION'),
+('782742', 'REGION'),
+('782743', 'REGION'),
+('782744', 'REGION'),
+('782745', 'REGION'),
+('782746', 'REGION'),
+('782747', 'REGION'),
+('782748', 'REGION'),
+('782749', 'REGION'),
+('782750', 'REGION'),
+('782751', 'REGION'),
+('782752', 'REGION'),
+('782753', 'REGION'),
+('782754', 'REGION'),
+('782755', 'REGION'),
+('782756', 'REGION'),
+('782757', 'REGION'),
+('782758', 'REGION'),
+('782759', 'REGION'),
+('782760', 'REGION'),
+('GR', 'COUNTRY');
+
 -- --------------------------------------------------------
 
 --
@@ -3149,7 +3324,25 @@ INSERT INTO `oc_t_log` (`dt_date`, `s_section`, `s_action`, `fk_i_id`, `s_data`,
 ('2018-05-08 17:31:54', 'itemActions', 'deleteResourcesFromHD', 11, '11', '192.168.2.21', 'admin', 1),
 ('2018-05-08 17:31:54', 'item', 'delete resource', 4, '4', '192.168.2.21', 'admin', 1),
 ('2018-05-08 17:31:54', 'item', 'delete resource backtrace', 4, '#0 osc_deleteResource called@ [/usr/share/webapps/ola.1/ola/oc-includes/osclass/ItemActions.php:820] / #1 deleteResourcesFromHD called@ [/usr/share/webapps/ola.1/ola/oc-includes/osclass/model/Item.php:967] / #2 deleteByPrimaryKey called@ [/usr/share/', '192.168.2.21', 'admin', 1),
-('2018-05-08 17:31:54', 'itemActions', 'deleteResourcesFromHD', 11, '4,', '192.168.2.21', 'admin', 1);
+('2018-05-08 17:31:54', 'itemActions', 'deleteResourcesFromHD', 11, '4,', '192.168.2.21', 'admin', 1),
+('2018-05-08 18:56:22', 'item', 'add', 12, '', '192.168.2.21', 'admin', 1),
+('2018-05-08 19:04:35', 'item', 'add', 13, '', '192.168.2.21', 'admin', 1),
+('2018-05-08 19:04:58', 'item', 'delete', 13, 'delme2', '192.168.2.21', 'admin', 1),
+('2018-05-08 19:04:58', 'itemActions', 'deleteResourcesFromHD', 13, '13', '192.168.2.21', 'admin', 1),
+('2018-05-08 19:04:58', 'itemActions', 'deleteResourcesFromHD', 13, '', '192.168.2.21', 'admin', 1),
+('2018-05-08 19:05:03', 'item', 'delete', 12, 'delme', '192.168.2.21', 'admin', 1),
+('2018-05-08 19:05:03', 'itemActions', 'deleteResourcesFromHD', 12, '12', '192.168.2.21', 'admin', 1),
+('2018-05-08 19:05:03', 'item', 'delete resource', 5, '5', '192.168.2.21', 'admin', 1),
+('2018-05-08 19:05:03', 'item', 'delete resource backtrace', 5, '#0 osc_deleteResource called@ [/usr/share/webapps/ola.1/ola/oc-includes/osclass/ItemActions.php:820] / #1 deleteResourcesFromHD called@ [/usr/share/webapps/ola.1/ola/oc-includes/osclass/model/Item.php:967] / #2 deleteByPrimaryKey called@ [/usr/share/', '192.168.2.21', 'admin', 1),
+('2018-05-08 19:05:03', 'itemActions', 'deleteResourcesFromHD', 12, '5,', '192.168.2.21', 'admin', 1),
+('2018-05-08 19:06:54', 'item', 'add', 14, '', '192.168.2.21', 'admin', 1),
+('2018-05-08 23:45:57', 'item', 'delete', 14, 'delme2', '192.168.2.21', 'admin', 1),
+('2018-05-08 23:45:57', 'itemActions', 'deleteResourcesFromHD', 14, '14', '192.168.2.21', 'admin', 1),
+('2018-05-08 23:45:57', 'itemActions', 'deleteResourcesFromHD', 14, '', '192.168.2.21', 'admin', 1),
+('2018-05-08 23:52:03', 'item', 'add', 15, '', '192.168.2.21', 'admin', 1),
+('2018-05-08 23:52:47', 'item', 'delete', 15, 'δελμε', '192.168.2.21', 'admin', 1),
+('2018-05-08 23:52:47', 'itemActions', 'deleteResourcesFromHD', 15, '15', '192.168.2.21', 'admin', 1),
+('2018-05-08 23:52:47', 'itemActions', 'deleteResourcesFromHD', 15, '', '192.168.2.21', 'admin', 1);
 
 -- --------------------------------------------------------
 
@@ -3783,7 +3976,7 @@ INSERT INTO `oc_t_preference` (`s_section`, `s_name`, `s_value`, `e_type`) VALUE
 ('osclasswizards_theme', 'homepage-728x90', '', 'STRING'),
 ('osclasswizards_theme', 'items_shown_map', '20', 'STRING'),
 ('osclasswizards_theme', 'keyword_placeholder', 'ψάξε ότι θές...', 'STRING'),
-('osclasswizards_theme', 'locations_input_as', 'text', 'STRING'),
+('osclasswizards_theme', 'locations_input_as', 'select', 'STRING'),
 ('osclasswizards_theme', 'locations_required', '0', 'STRING'),
 ('osclasswizards_theme', 'logo', 'logo.png', 'STRING'),
 ('osclasswizards_theme', 'popular_cities_limit', '10', 'STRING'),
@@ -4110,7 +4303,6 @@ INSERT INTO `oc_t_region_stats` (`fk_i_region_id`, `i_num_items`) VALUES
 (782709, 0),
 (782710, 0),
 (782711, 0),
-(782712, 0),
 (782713, 0),
 (782714, 0),
 (782715, 0),
@@ -4158,7 +4350,8 @@ INSERT INTO `oc_t_region_stats` (`fk_i_region_id`, `i_num_items`) VALUES
 (782757, 0),
 (782758, 0),
 (782759, 0),
-(782760, 0);
+(782760, 0),
+(782712, 1);
 
 -- --------------------------------------------------------
 
@@ -4180,8 +4373,8 @@ CREATE TABLE `oc_t_rslides` (
 --
 
 INSERT INTO `oc_t_rslides` (`id`, `uniqname`, `imagename`, `caption`, `description`, `link`) VALUES
-(1, '5af18f4d07617.jpg', '5ace55ba441bb.jpg', '', '', ''),
-(2, '5af18f586105e.jpg', '5ace55c367b59.jpg', '', '', '');
+(3, '5af1c0e86ac11.jpg', '5ace55ba441bb.jpg', '', '', ''),
+(4, '5af1c0f2b201a.jpg', '5ace55c367b59.jpg', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -4576,7 +4769,7 @@ ALTER TABLE `oc_t_widget`
 -- AUTO_INCREMENT for table `oc_t_admin`
 --
 ALTER TABLE `oc_t_admin`
-  MODIFY `pk_i_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `pk_i_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `oc_t_alerts`
@@ -4606,7 +4799,7 @@ ALTER TABLE `oc_t_city`
 -- AUTO_INCREMENT for table `oc_t_item`
 --
 ALTER TABLE `oc_t_item`
-  MODIFY `pk_i_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `pk_i_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `oc_t_item_comment`
@@ -4618,7 +4811,7 @@ ALTER TABLE `oc_t_item_comment`
 -- AUTO_INCREMENT for table `oc_t_item_resource`
 --
 ALTER TABLE `oc_t_item_resource`
-  MODIFY `pk_i_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `pk_i_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `oc_t_meta_fields`
@@ -4642,7 +4835,7 @@ ALTER TABLE `oc_t_region`
 -- AUTO_INCREMENT for table `oc_t_rslides`
 --
 ALTER TABLE `oc_t_rslides`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `oc_t_user`
