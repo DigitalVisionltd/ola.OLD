@@ -263,6 +263,20 @@ function customPageHeader() { ?>
                                 <label><?php _e('Address'); ?></label>
                                 <?php ItemForm::address_text(); ?>
                             </div>
+<!--/* kyr START add lat/lon suport*/-->
+            <div class="form-group">
+            <label class="control-label">
+              <?php _e('Latitude', OSCLASSWIZARDS_THEME_FOLDER); ?>
+            </label>
+                <input type="text" name="latitude" value="">
+            </div>
+            <div class="form-group">
+            <label class="control-label">
+              <?php _e('Longitude', OSCLASSWIZARDS_THEME_FOLDER); ?>
+            </label>
+                <input type="text" name="longitude" value="">
+            </div>
+<!-- /* kyr END */ -->
                         </div>
 
                         <div class="well ui-rounded-corners input-separate-top">
