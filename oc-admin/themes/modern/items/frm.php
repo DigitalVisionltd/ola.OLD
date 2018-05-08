@@ -236,7 +236,7 @@ function customPageHeader() { ?>
                             </div>
                             <div class="input-has-placeholder input-separate-top">
                                 <label><?php _e('City'); ?></label>
-                                <?php ItemForm::city_select(); ?>
+                                <?php ItemForm::city_text(); ?>
                             </div>
                             <div class="input-has-placeholder input-separate-top">
                                 <label><?php _e('City area'); ?></label>
