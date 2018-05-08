@@ -235,7 +235,7 @@ function customPageHeader() { ?>
                             <h3 class="label"><?php _e('Location'); ?></h3>
                             <div class="input-has-placeholder input-separate-top">
                                 <label><?php _e('Country'); ?></label>
-                                <?php ItemForm::country_select(); ?>
+                                <?php ItemForm::country_text(); ?>
                             </div>
                             <div class="input-has-placeholder input-separate-top">
                                 <label><?php _e('Region'); ?></label>
