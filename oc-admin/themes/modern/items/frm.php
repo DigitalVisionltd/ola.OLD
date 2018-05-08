@@ -206,11 +206,18 @@ function customPageHeader() { ?>
                             <div id="contact_info">
                                 <div class="input-has-placeholder input-separate-top">
                                     <label><?php _e('Name'); ?></label>
+                                    <!-- /* kyr START */ --
                                     <?php ItemForm::contact_name_text(); ?>
+                                    <!-- /* kyr END */ -->
+                                    <?php ItemForm::contact_name_text(array('s_contact_name' => 'Mod')); ?>
                                 </div>
                                 <div class="input-has-placeholder input-separate-top">
                                     <label><?php _e('E-mail'); ?></label>
+                                    <!-- /* kyr START */ --
                                     <?php ItemForm::contact_email_text(); ?>
+                                    <?php ItemForm::contact_email_text(array('s_contact_email' => 'support@olapatra.gr')); ?>
+                                    <!-- /* kyr END */ -->
+                                    <?php ItemForm::contact_email_text(array('s_contact_email' => 'ola@designisdesign.eu')); ?>
                                 </div>
                                 <?php if(!$new_item) { ?>
                                 <div class="input-has-placeholder input-separate-top">
@@ -232,16 +239,22 @@ function customPageHeader() { ?>
                             </div>
                             <div class="input-has-placeholder input-separate-top">
                                 <label><?php _e('Region'); ?></label>
+                                <!-- /* kyr replace below line with kyr region line*/ --
                                 <?php ItemForm::region_text(); ?>
+                                <!-- /* kyr */ -->
+                                <!-- /* kyr default region */ -->
+                                <?php ItemForm::region_text(array('s_region' => 'Νομός Αχαΐας')); ?>
                             </div>
                             <div class="input-has-placeholder input-separate-top">
                                 <label><?php _e('City'); ?></label>
                                 <?php ItemForm::city_text(); ?>
                             </div>
+                            <!-- /* kyr START disable city area */ --
                             <div class="input-has-placeholder input-separate-top">
                                 <label><?php _e('City area'); ?></label>
                                 <?php ItemForm::city_area_text(); ?>
                             </div>
+                            <!-- /* kyr END */ -->
                             <div class="input-has-placeholder input-separate-top">
                                 <label><?php _e('Zip code'); ?></label>
                                 <?php ItemForm::zip_text(); ?>
