@@ -219,7 +219,7 @@ function customPageHeader() { ?>
                                     <!-- /* kyr END */ -->
 <?php 
 $k_domain = $_SERVER['HTTP_HOST'];
-$k_domain = str_replace('www', '', $_domain);
+$k_domain = str_replace('www', '', $k_domain);
 ?>
                                     <?php ItemForm::contact_email_text(array('s_contact_email' => 'support@' . $k_domain . '')); ?>
                                 </div>
