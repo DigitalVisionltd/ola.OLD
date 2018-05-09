@@ -249,7 +249,7 @@ function customPageHeader() { ?>
                                 <?php ItemForm::region_text(); ?>
                                 <!-- /* kyr */ -->
                                 <!-- /* kyr default region */ -->
-                                <?php ItemForm::region_text(array('s_region' => 'Νομός Κυκλάδων')); ?>
+                                <?php ItemForm::region_text(array('s_region' => 'Νομός Αχαΐας')); ?>
                             </div>
                             <div class="input-has-placeholder input-separate-top">
                                 <label><?php _e('City'); ?></label>
@@ -257,7 +257,7 @@ function customPageHeader() { ?>
                                 <?php ItemForm::city_text(); ?>
                                 <!-- /* kyr */ -->
                                 <!-- /* kyr default region */ -->
-                                <?php ItemForm::city_text(array('s_city' => 'Σύρος - Άνω')); ?>
+                                <?php ItemForm::city_text(array('s_city' => 'Πάτρα')); ?>
                             </div>
                             <!-- /* kyr START disable city area */ --
                             <div class="input-has-placeholder input-separate-top">
