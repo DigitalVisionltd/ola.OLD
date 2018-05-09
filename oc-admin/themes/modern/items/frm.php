@@ -217,11 +217,13 @@ function customPageHeader() { ?>
                                     <?php ItemForm::contact_email_text(); ?>
                                     <?php ItemForm::contact_email_text(array('s_contact_email' => 'support@olapatra.gr')); ?>
                                     <!-- /* kyr END */ -->
-<?php 
-$k_domain = $_SERVER['HTTP_HOST'];
-$k_domain = str_replace('www', '', $k_domain);
-?>
+                                    <!-- /* kyr START set domain name in e-mail address automaticaly and strip www. from domain name */ -->
+                                    <?php 
+                                        $k_domain = $_SERVER['HTTP_HOST'];
+                                        $k_domain = str_replace('www', '', $k_domain);
+                                    ?>
                                     <?php ItemForm::contact_email_text(array('s_contact_email' => 'support@' . $k_domain . '')); ?>
+                                    <!-- /* kyr END */ -->
                                 </div>
                                 <?php if(!$new_item) { ?>
                                 <div class="input-has-placeholder input-separate-top">
