@@ -217,7 +217,8 @@ function customPageHeader() { ?>
                                     <?php ItemForm::contact_email_text(); ?>
                                     <?php ItemForm::contact_email_text(array('s_contact_email' => 'support@olapatra.gr')); ?>
                                     <!-- /* kyr END */ -->
-                                    <?php ItemForm::contact_email_text(array('s_contact_email' => 'support@' . $_SERVER['HTTP_HOST'] . '')); ?>
+<?php $k_domain=$_SERVER['HTTP_HOST'] ?>
+                                    <?php ItemForm::contact_email_text(array('s_contact_email' => 'support@' . $k_domain . '')); ?>
                                 </div>
                                 <?php if(!$new_item) { ?>
                                 <div class="input-has-placeholder input-separate-top">
