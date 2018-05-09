@@ -821,3 +821,7 @@ msgstr "Αναζήτηση περιοχής"
 
 msgid "Select a city"
 msgstr "Αναζήτηση πόλης"
+
+msgid "Please Login"
+msgstr "Παρακαλώ συνδεθείτε στον λογαριασμό σας"
+
