@@ -1219,7 +1219,7 @@ insert into `oc_t_preference` values
 ('osclasswizards_theme','theme_color_mode','vivid-red','STRING'),
 ('osclasswizards_theme','title_minimum_length','3','STRING'),
 ('osclasswizards_theme','version','2.0.4','STRING'),
-('osclasswizards_theme','welcome_message','Τα πάντα όλα για τη Σύρο','STRING'),
+('osclasswizards_theme','welcome_message','Τα πάντα όλα για...','STRING'),
 ('osclasswizards_theme_cat_icons','cat-icons-1','tags','STRING'),
 ('osclasswizards_theme_cat_icons','cat-icons-102','soccer-ball-o','STRING'),
 ('osclasswizards_theme_cat_icons','cat-icons-103','','STRING'),
