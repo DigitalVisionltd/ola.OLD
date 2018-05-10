@@ -825,3 +825,5 @@ msgstr "Αναζήτηση πόλης"
 msgid "Please Login"
 msgstr "Παρακαλώ συνδεθείτε στον λογαριασμό σας"
 
+msgid "Create An Account"
+msgstr "Δημιουργία Λογαριασμού"
