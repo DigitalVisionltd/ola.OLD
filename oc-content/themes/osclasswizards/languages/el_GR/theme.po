@@ -827,6 +827,3 @@ msgstr "Παρακαλώ συνδεθείτε στον λογαριασμό σα
 
 msgid "Create An Account"
 msgstr "Δημιουργία Λογαριασμού"
-
-msgid "There aren't listings available at this moment"
-msgstr "Δεν υπάρχουν διαθέσιμες αγγελίες αυτή τη στιγμή"
