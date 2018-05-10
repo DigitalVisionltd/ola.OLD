@@ -12,5 +12,5 @@
 - Fix search result "yamaha" wile search for "yam"
 
 ### TODO
-- Add Lat/Lon on admin/moderator side
+- ~~Add Lat/Lon on admin/moderator side~~ DONE
 
