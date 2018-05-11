@@ -253,6 +253,7 @@
                         </select>
                     </div>
                 </div>
+
                 <div class="form-row">
                     <div class="form-label">
                         <?php _e('Block'); ?>
@@ -265,6 +266,20 @@
                         </select>
                     </div>
                 </div>
+                <!-- /* kyr START add filter for expired ads (see also the changes in /oc-includes/osclass/classes/datatables/ItemsDataTable.php) */ -->
+                <div class="form-row">
+                    <div class="form-label">
+                        <?php _e('Expired'); ?>
+                    </div>
+                    <div class="form-controls">
+                        <select id="b_expired" name="b_expired">
+                            <option value="" <?php echo ( (Params::getParam('b_expired') == '') ? 'selected="selected"' : '' )?>><?php _e('Choose an option'); ?></option>
+                            <option value="0" <?php echo ( (Params::getParam('b_expired') == '0') ? 'selected="selected"' : '' )?>><?php _e('ON'); ?></option>
+                            <option value="1" <?php echo ( (Params::getParam('b_expireed') == '1') ? 'selected="selected"' : '' )?>><?php _e('OFF'); ?></option>
+                        </select>
+                    </div>
+                </div>
+                <!-- /* kyr END */ -->
                 <div class="form-row">
                     <div class="form-label">
                         <?php _e('Spam'); ?>

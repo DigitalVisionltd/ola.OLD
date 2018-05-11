@@ -114,8 +114,7 @@ function customPageHeader() { ?>
 
             });
         </script>
-//        <?php ItemForm::location_javascript_new('admin'); ?>
-        <?php ItemForm::location_javascript('admin'); ?>
+        <?php ItemForm::location_javascript_new('admin'); ?>
         <?php if( osc_images_enabled_at_items() ) ItemForm::photos_javascript(); ?>
         <?php
     }
@@ -201,17 +200,35 @@ function customPageHeader() { ?>
                             }
                         ?>
                     </div>
+
+                   <!-- /* kyr START */--> 
+                   <?php
+                        /* retrieve custom fields like region and city from 'conf' file on root of the site */
+                        $array = file("../conf");
+                        $k_name = $array[0];
+                        $k_mail = $array[1];
+                        $k_region = $array[2];
+                        $k_city = $array[3];
+
+                        /* retrieve domain name and set it to variable */
+                        $k_domain = $_SERVER['HTTP_HOST'];
+                        $k_domain = str_replace('www.', '', $k_domain);
+                    ?>
+                    <!-- /* kyr END */ -->
+
                     <div id="right-side">
                         <div class="well ui-rounded-corners">
                             <h3 class="label"><?php _e('User'); ?></h3>
                             <div id="contact_info">
                                 <div class="input-has-placeholder input-separate-top">
                                     <label><?php _e('Name'); ?></label>
-                                    <?php ItemForm::contact_name_text(); ?>
+                                    <!-- /* kyr set the moderator name */ -->
+                                    <?php ItemForm::contact_name_text(array('s_contact_name' => '' . $k_name . '')); ?>
                                 </div>
                                 <div class="input-has-placeholder input-separate-top">
                                     <label><?php _e('E-mail'); ?></label>
-                                    <?php ItemForm::contact_email_text(); ?>
+                                    <!-- /* kyr set domain name in e-mail address automaticaly and strip www. from domain name */ -->
+                                    <?php ItemForm::contact_email_text(array('s_contact_email' => '' . $k_mail . $k_domain . '')); ?>
                                 </div>
                                 <?php if(!$new_item) { ?>
                                 <div class="input-has-placeholder input-separate-top">
@@ -229,20 +246,24 @@ function customPageHeader() { ?>
                             <h3 class="label"><?php _e('Location'); ?></h3>
                             <div class="input-has-placeholder input-separate-top">
                                 <label><?php _e('Country'); ?></label>
-                                <?php ItemForm::country_select(); ?>
+                                <?php ItemForm::country_text(); ?>
                             </div>
                             <div class="input-has-placeholder input-separate-top">
                                 <label><?php _e('Region'); ?></label>
-                                <?php ItemForm::region_text(); ?>
+                                <!-- /* kyr default region (set it in 'conf' file) */ -->
+                                <?php ItemForm::region_text(array('s_region' => '' . $k_region . '')); ?>
                             </div>
                             <div class="input-has-placeholder input-separate-top">
                                 <label><?php _e('City'); ?></label>
-                                <?php ItemForm::city_select(); ?>
+                                <!-- /* kyr default city (set it in 'conf' file) */ -->
+                                <?php ItemForm::city_text(array('s_city' => '' . $k_city . '')); ?>
                             </div>
+                            <!-- /* kyr START disable city area */ --
                             <div class="input-has-placeholder input-separate-top">
                                 <label><?php _e('City area'); ?></label>
                                 <?php ItemForm::city_area_text(); ?>
                             </div>
+                            <!-- /* kyr END */ -->
                             <div class="input-has-placeholder input-separate-top">
                                 <label><?php _e('Zip code'); ?></label>
                                 <?php ItemForm::zip_text(); ?>
@@ -251,6 +272,22 @@ function customPageHeader() { ?>
                                 <label><?php _e('Address'); ?></label>
                                 <?php ItemForm::address_text(); ?>
                             </div>
+
+                            <!--/* kyr START add lat/lon suport*/-->
+                            <div class="form-group">
+                                <label class="control-label">
+                                <?php _e('Latitude', OSCLASSWIZARDS_THEME_FOLDER); ?>
+                                </label>
+                                <input type="text" name="latitude" value="">
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">
+                                <?php _e('Longitude', OSCLASSWIZARDS_THEME_FOLDER); ?>
+                                </label>
+                                <input type="text" name="longitude" value="">
+                            </div>
+                            <!-- /* kyr END */ -->
+
                         </div>
 
                         <div class="well ui-rounded-corners input-separate-top">

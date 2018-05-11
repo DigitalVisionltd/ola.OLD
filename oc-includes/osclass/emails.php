@@ -681,9 +681,8 @@
         $item_link = '<a href="' . $item_url . '" >' . $item['s_title'] . '</a>';
 
 
-
-        $title = "Η διαφήμισή σας εγκρίθηκε - Όλα Σαντορίνη";
-        $body  = '<p>Γεια σας ' . $item['s_contact_name'] . ',</p> <p>Η διαφήμισή σας ' . $item_link . ' εγκρίθηκε και έχει αναρτηθεί στο "Ολα Σαντορίνη".</p>';
+        $title = 'Η διαφήμισή σας εγκρίθηκε - ' . osc_page_title() . '';
+        $body  = '<p>Γεια σας ' . $item['s_contact_name'] . ',</p> <p>Η διαφήμισή σας ' . $item_link . ' εγκρίθηκε και έχει αναρτηθεί στο ' . osc_page_title() .'</p>';
 
         $from      = osc_contact_email();
         $from_name = osc_page_title();
