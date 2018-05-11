@@ -27,7 +27,7 @@
 
 <body <?php osclasswizards_body_class(); ?>>
 
-<!-- /* kyr START fixed top bar and search bar while scrolling */ -->
+<!-- /* kyr START fixed top bar and search bar while scrolling */ --
 <style>
 /*  START fixed search bar *
 #header .banner_none.sticky {
