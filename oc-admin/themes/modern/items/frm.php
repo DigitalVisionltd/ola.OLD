@@ -209,6 +209,7 @@ function customPageHeader() { ?>
                         $k_mail = $array[1];
                         $k_region = $array[2];
                         $k_city = $array[3];
+                        $k_address = $array[4];
 
                         /* retrieve domain name and set it to variable */
                         $k_domain = $_SERVER['HTTP_HOST'];
@@ -270,7 +271,8 @@ function customPageHeader() { ?>
                             </div>
                             <div class="input-has-placeholder input-separate-top">
                                 <label><?php _e('Address'); ?></label>
-                                <?php ItemForm::address_text(); ?>
+                                <!-- /* kyr default address (set it in 'conf' file) */ -->
+                                <?php ItemForm::address_text(array('s_address' => '' . $k_address . '')); ?>
                             </div>
 
                             <!--/* kyr START add lat/lon suport*/-->
