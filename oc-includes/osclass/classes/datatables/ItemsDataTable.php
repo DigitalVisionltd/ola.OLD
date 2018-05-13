@@ -457,6 +457,12 @@
                     $this->mSearch->addItemConditions(DB_TABLE_PREFIX.'t_item.b_spam = '.$v);
                     $this->withFilters = true;
                 }
+                /* kyr STRRT add support for search expired listings (see also the changes in oc-admin/themes/modern/items/index.php */
+                if($k == 'b_expired' && $v != '') {
+                $this->mSearch->addItemConditions(DB_TABLE_PREFIX.'t_item.dt_expiration < now()');
+                $this->withFilters = true;
+                }
+                /* kyr END */
                 if($k == 'user' && $v != '') {
                     $no_user_email = $v;
                 }
