@@ -1356,3 +1356,18 @@ mysql_close($con);
         return $vysledek;
 }
 /* KYR END CAROUSEL CODE */ ?>
+
+<?php /* kyr START add column item ID in admin listings */
+function cust_admin_pk_id_header($table) {
+    $table->addColumn('pk_id', '<span>' . __('ID') . '</span>');
+}
+
+function cust_admin_pk_id_data($row, $aRow) {
+    $row['pk_id'] = $aRow['pk_i_id'];
+    return $row ;
+}
+
+osc_add_hook('admin_items_table', 'cust_admin_pk_id_header');
+osc_add_filter("items_processing_row", "cust_admin_pk_id_data");
+/* kyr END */
+?>
