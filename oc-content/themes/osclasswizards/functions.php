@@ -1298,7 +1298,7 @@ osc_add_hook('search_conditions', 'cust_search_keyword_wildcard_with_username', 
 
 <?php /* KYR BEGIN CAROUSEL CODE*/ 
 function reklama($i) {
-$cat_id = array(1,2,3,4,5,56,102,109,113,120,122,138,139);
+$cat_id = array(1,2,3,4,5,56,102,109,113,120,122,138,139,144);
 if (in_array($i, $cat_id))
 $dir = "banner_id_$i" ;
 else $dir = "nodir" ;
