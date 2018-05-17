@@ -1371,3 +1371,22 @@ osc_add_hook('admin_items_table', 'cust_admin_pk_id_header');
 osc_add_filter("items_processing_row", "cust_admin_pk_id_data");
 /* kyr END */
 ?>
+
+<?php /* kyr START display custom column field (item views) */
+function cust_admin_my_custom_items_column_header($table) {
+
+    $table->addColumn('my_custom_items_column', '<span>' . __('Views' . '</span>', 'osclasswizards'));
+}
+
+function cust_admin_my_custom_items_column_data($row, $aRow) {
+
+    $conn = getConnection();
+    $item = $conn->osc_dbFetchResult("SELECT * FROM oc_t_item_stats WHERE fk_i_item_id = '%d'", $aRow['pk_i_id'] );
+
+    $row['my_custom_items_column'] = $item['i_num_views'] ;
+    return $row ;
+}
+
+osc_add_hook('admin_items_table', 'cust_admin_my_custom_items_column_header');
+osc_add_filter('items_processing_row', 'cust_admin_my_custom_items_column_data');
+?>
