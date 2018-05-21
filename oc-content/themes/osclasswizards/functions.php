@@ -1296,33 +1296,22 @@ function cust_search_keyword_wildcard_with_username($params) {
 osc_add_hook('search_conditions', 'cust_search_keyword_wildcard_with_username', 1); 
 ?>
 
-<?php /* KYR BEGIN CAROUSEL CODE*/ 
+<?php /* KYR BEGIN CAROUSEL CODE */
 function reklama($i) {
-$cat_id = array(1,2,3,4,5,56,102,109,113,120,122,138,139);
-if (in_array($i, $cat_id))
-$dir = "banner_id_$i" ;
-else $dir = "nodir" ;
+    // connect to database
+    $conn = getConnection();
 
-$files = scandir("banners/$dir");
-foreach($files as $file) {
-    /* kyr START retrieve url from .txt file */
-    $filename = pathinfo($file, PATHINFO_FILENAME); //filename without extension
-    $fileurl = "banners/$dir/.url/$filename.txt";
-    $fh = fopen($fileurl, 'r');
-    $url = fgets($fh);
-    fclose($fh);
-    /* kyr END */
-    if($file !== "." && $file !== ".." && $file !== ".url") {
+    // select from table
+    $item = $conn->osc_dbFetchResults("SELECT * FROM kr_t_banner WHERE k_cat_id = '%d'", $i);
+
+    // $howmany = count($item);
+
+    foreach($item as $tip) {
+        $url = $tip['k_url'];
+        $img = $tip['k_img'];
         {?>
-        <!-- settings for height and width of banner -->
-        <!-- kyr START old without url --
-        <a href="http://<?php echo $url ?>"><img class="mySlides" src="banners/<?php echo $dir?>/<?php echo $file?>" style="width:100%;height:200px"></a>
-        <! kyr END -->
-        <!-- kyr START enable url on banner click -->
-        <a href="<?php echo $url ?>" target="_blank"><img class="mySlides" src="banners/<?php echo $dir?>/<?php echo $file?>" style="width:100%;height:200px"></a>
-        <!-- kyr END -->
+        <a href="<?php echo $url ?>" target="_blank"><img class="mySlides" src="banners/<?php echo $img ?>" style="width:100%;height:200px"></a>
         <?php
-        }
     }
 }
 
@@ -1335,25 +1324,7 @@ carousel();
 </script>
 <?php }
 // END OF HTML CODE
-}
 
-function parent($i){
-    $con = mysql_connect(DB_HOST,DB_USER,DB_PASSWORD);
-    if (!$con){
-        die('Could not connect: ' . mysql_error());
-    }
-
-$query="select fk_i_parent_id from ".DB_TABLE_PREFIX."t_category  where pk_i_id='".$i."';";
-mysql_select_db(DB_NAME, $con);
-$result = mysql_query($query);
-
-    while($row = mysql_fetch_array($result)){
-        $vysledek = $row['fk_i_parent_id'] ;
-    }
-
-mysql_close($con);
-    if (strlen($vysledek) == 0) $vysledek = $i;
-        return $vysledek;
 }
 /* KYR END CAROUSEL CODE */ ?>
 
@@ -1372,7 +1343,7 @@ osc_add_filter("items_processing_row", "cust_admin_pk_id_data");
 /* kyr END */
 ?>
 
-<?php /* kyr START display custom column field (item views) */
+<?php /* kyr START display custom column field (item views) in admin panel*/
 function cust_admin_my_custom_items_column_header($table) {
 
     $table->addColumn('my_custom_items_column', '<span>' . __('Views' . '</span>', 'osclasswizards'));
@@ -1390,3 +1361,51 @@ function cust_admin_my_custom_items_column_data($row, $aRow) {
 osc_add_hook('admin_items_table', 'cust_admin_my_custom_items_column_header');
 osc_add_filter('items_processing_row', 'cust_admin_my_custom_items_column_data');
 ?>
+
+<?php /* kyr START custom query from db TEST */
+if( !function_exists('logged_user_post_count') ){
+    function logged_user_post_count($userId) {
+        $conn = getConnection();
+
+        $item = $conn->osc_dbFetchResult("SELECT * FROM oc_t_admin WHERE pk_i_id = '%d'", $userId);
+        return $item['s_email'];
+    }
+}
+?>
+
+<?php /* kyr START insert in database example TEST */
+function kr_add_db($name, $tel) {
+    $conn = getConnection();
+
+    $conn->osc_dbExec("INSERT INTO kr_t_pelates (s_name, s_tel) VALUES ('%s', '%s' )", $name, $tel);
+}
+?>
+
+<?php /* kyr START insert in database */
+if( !function_exists('kr_add_banner') ){
+    function kr_add_banner($cat, $url, $img) {
+        $conn = getConnection();
+
+        $conn->osc_dbExec("INSERT INTO kr_t_banner (s_category_id, s_url, s_filename_img) VALUES ('%s', '%s', '%s' )", $cat, $url, $img);
+    }
+}
+?>
+
+<?php /* kyr START banner queries from database DON'T NEEDED DELME IF YOU WANT*/
+if( !function_exists('kr_get_banner') ){
+    function kr_get_banner($catid, $num, $what) {
+        $conn = getConnection();
+
+        $item = $conn->osc_dbFetchResults("SELECT * FROM kr_t_banner WHERE s_category_id = '%d'", $catid);
+
+/*        foreach($item as $tip) {
+            print_r($tip[$what]);
+        }
+*/
+//        foreach($item as $tip) {
+        return $item[$num][$what];
+//}
+    }
+}
+//        return $item[$what];
+/**/ ?>
