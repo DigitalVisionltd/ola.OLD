@@ -1383,10 +1383,10 @@ function kr_add_db($name, $tel) {
 
 <?php /* kyr START insert in database */
 if( !function_exists('kr_add_banner') ){
-    function kr_add_banner($cat, $url, $img) {
+    function kr_add_banner($cat, $url, $img, $date) {
         $conn = getConnection();
 
-        $conn->osc_dbExec("INSERT INTO kr_t_banner (s_category_id, s_url, s_filename_img) VALUES ('%s', '%s', '%s' )", $cat, $url, $img);
+        $conn->osc_dbExec("INSERT INTO kr_t_banner (k_cat_id, k_url, k_img, k_date) VALUES ('%s', '%s', '%s', '%s')", $cat, $url, $img, $date);
     }
 }
 ?>
@@ -1396,7 +1396,7 @@ if( !function_exists('kr_get_banner') ){
     function kr_get_banner($catid, $num, $what) {
         $conn = getConnection();
 
-        $item = $conn->osc_dbFetchResults("SELECT * FROM kr_t_banner WHERE s_category_id = '%d'", $catid);
+        $item = $conn->osc_dbFetchResults("SELECT * FROM kr_t_banner WHERE k_cat_id = '%d'", $catid);
 
 /*        foreach($item as $tip) {
             print_r($tip[$what]);
@@ -1409,3 +1409,12 @@ if( !function_exists('kr_get_banner') ){
 }
 //        return $item[$what];
 /**/ ?>
+
+<?php
+function kr_del_banner($cat_id) {
+    $conn = getConnection();
+    $del = $conn->osc_dbExec("DELETE FROM kr_t_banner WHERE k_id = %s", $cat_id);
+    return $del;
+}
+?>
+
