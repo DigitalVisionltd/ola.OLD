@@ -70,10 +70,12 @@
 
 <?php /* KYR START DISPLAY CATEGORIES CAROUSEL ON TOP */ 
 $category = osc_search_category_id();
-    if (count($category) != 0){
-        $a = implode(',',$category);
+if (count($category) != 0){
+    $a = implode(',',$category);
+    if( function_exists('reklama') ){
         reklama($a);
     }
+}
 /* KYR END CAROUSEL */ ?>
 
 <div class="row">

@@ -1296,7 +1296,7 @@ function cust_search_keyword_wildcard_with_username($params) {
 osc_add_hook('search_conditions', 'cust_search_keyword_wildcard_with_username', 1); 
 ?>
 
-<?php /* KYR BEGIN CAROUSEL CODE */
+<?php /* KYR BEGIN CAROUSEL CODE *
 function reklama($i) {
     // connect to database
     $conn = getConnection();
@@ -1310,7 +1310,8 @@ function reklama($i) {
         $url = $tip['k_url'];
         $img = $tip['k_img'];
         {?>
-        <a href="<?php echo $url ?>" target="_blank"><img class="mySlides" src="banners/<?php echo $img ?>" style="width:100%;height:200px"></a>
+<!--        <a href="<?php echo $url ?>" target="_blank"><img class="mySlides" src="banners/<?php echo $img ?>" style="width:100%;height:200px"></a> -->
+        <a href="<?php echo $url ?>" target="_blank"><img class="mySlides" src="oc-content/plugins/banner/media/<?php echo $img ?>" style="width:100%;height:200px"></a>
         <?php
     }
 }
