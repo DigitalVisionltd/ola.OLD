@@ -7,6 +7,7 @@
 
         $db_cat = $item['k_cat_id'];
         $db_url = $item['k_url'];
+        $db_img = $item['k_img'];
 }
 ?>
 
@@ -27,6 +28,13 @@
                 </div>
             </div>
             <!-- /* kyr END */ -->
+
+            <div class="form-row">
+                <div class="image_preview">
+                    <img src="<?php echo osc_base_url().'oc-content/plugins/banner/media/'.$db_img; ?>" width="393", height="120">
+                </div>
+            </div>
+
             <div class="form-row">
                 <div class="form-label"><?php _e('Category ID','banner'); ?></div>
                 <div class="form-controls">
