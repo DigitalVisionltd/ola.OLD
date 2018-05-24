@@ -42,6 +42,56 @@
 
 ?>
 
+<!--/* kyr START display 3 main selected categories on top */--
+<h1 class="title">Δωρεάν κατηγορίες για πάντα..</h1>
+
+<?php
+// kyr Variables
+$cat_1_id="8";
+$cat_1_name="Βρες Δουλειά";
+$cat_2_id="122";
+$cat_2_name="Βρες Υπάλληλο";
+$cat_3_id="1";
+$cat_3_name="Πωλήσεις";
+
+{ ?>
+<div class="row">
+
+<ul class="col-sm-6 col-md-4 grid_list">
+<li>
+   <section class="listings">
+      <h2><i class="fa fa-shopping-cart"></i> 
+          <a class="category %cf%8e" href="http://designisdesign.eu/ola/index.php?page=search&sCategory=<?php echo $cat_1_id ?>"><?php echo $cat_1_name ?></a>
+      </h2>
+   </section>
+</li>
+</ul>
+
+  <ul class="col-sm-6 col-md-4 grid_list">
+<li>
+   <section class="listings">
+      <h2><i class="fa fa-shopping-cart"></i> 
+          <a class="category %cf%8e" href="http://designisdesign.eu/ola/index.php?page=search&sCategory=<?php echo $cat_2_id ?>"><?php echo $cat_2_name ?></a>
+      </h2>
+   </section>
+</li>
+</ul>
+
+  <ul class="col-sm-6 col-md-4 grid_list">
+<li>
+   <section class="listings">
+      <h2><i class="fa fa-shopping-cart"></i> 
+          <a class="category %cf%8e" href="http://designisdesign.eu/ola/index.php?page=search&sCategory=<?php echo $cat_3_id ?>"><?php echo $cat_3_name ?></a>
+      </h2>
+   </section>
+</li>
+</ul>
+
+</div>
+<?php }
+?>
+<!--/* kyr END display 3 main selected categories on top */-->
+
 <h1 class="title">
   <?php _e('Premium Listings',OSCLASSWIZARDS_THEME_FOLDER);?>
 </h1>
