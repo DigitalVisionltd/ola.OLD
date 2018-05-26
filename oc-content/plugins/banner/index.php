@@ -106,12 +106,69 @@ osc_add_admin_submenu_page(
     osc_add_hook(osc_plugin_path(__FILE__) . '_uninstall', 'banner_uninstall') ;
 ?>
 
-<?php /* Script to cycle the images carousel style */
-    $conn = getConnection();
-    $sett = $conn->osc_dbFetchResult("SELECT * FROM oc_t_banner_s");
-    $timeout = $sett['timeout'];
-{?>
+<?php /* the main banner function */
+function reklama($cat_id) { ?>
+
+    <style>
+
+        .fadebanner {
+            -webkit-animation: fadein 1s; /* Safari and Chrome */
+            -moz-animation: fadein 1s; /* Firefox */
+            -ms-animation: fadein 1s; /* Internet Explorer */
+            -o-animation: fadein 1s; /* Opera */
+            animation: fadein 1s;
+        }
+
+        @keyframes fadein {
+            from { opacity: 0; }
+            to   { opacity: 1; }
+        }
+
+        /* Firefox */
+        @-moz-keyframes fadein {
+            from { opacity: 0; }
+            to   { opacity: 1; }
+        }
+
+        /* Safari and Chrome */
+        @-webkit-keyframes fadein {
+            from { opacity: 0; }
+            to   { opacity: 5; }
+        }
+
+        /* Internet Explorer */
+        @-ms-keyframes fadein {
+            from { opacity: 0; }
+            to   { opacity: 1; }
+        }​
+
+        /* Opera */
+        @-o-keyframes fadeein {
+            from { opacity: 0; }
+            to   { opacity: 1; }
+        }​
+
+    </style>
+
+
+    <?php $conn = getConnection(); ?>
+
+    <?php $sett = $conn->osc_dbFetchResult("SELECT * FROM oc_t_banner_s"); ?>
+    <?php $width = $sett['width']; ?>
+    <?php $height = $sett['height']; ?>
+    <?php $timeout = $sett['timeout']; ?>
+
+    <?php $item = $conn->osc_dbFetchResults("SELECT * FROM oc_t_banner WHERE k_cat_id = '%d'", $cat_id); ?>
+
+    <?php foreach($item as $tip) { ?>
+        <?php $url = $tip['k_url']; ?>
+        <?php $img = $tip['k_img']; ?>
+        <a href="<?php echo $url ?>" target="_blank"><img class="mySlides fadebanner" src="oc-content/plugins/banner/media/<?php echo $img ?>" style="width:<?php echo $width ?>px;height:<?php echo $height ?>px"></a>
+    <?php } ?>
+
 <script>
+    var myIndex = 0;
+    carousel();
 function carousel() {
     var i;
     var x = document.getElementsByClassName("mySlides");
@@ -121,29 +178,8 @@ function carousel() {
     myIndex++;
     if (myIndex > x.length) {myIndex = 1}
     x[myIndex-1].style.display = "block";
-    setTimeout(carousel, <?php echo $timeout ?>); // Change image every 3 seconds
+    setTimeout(carousel, <?php echo $timeout ?>); <!--// Change image every 3 seconds-->
 }
-</script>
-<?php }
-?>
-
-<?php /* the main banner function */
-function reklama($cat_id) { ?>
-    <?php $conn = getConnection(); ?>
-    <?php $item = $conn->osc_dbFetchResults("SELECT * FROM oc_t_banner WHERE k_cat_id = '%d'", $cat_id); ?>
-
-    <?php $sett = $conn->osc_dbFetchResult("SELECT * FROM oc_t_banner_s"); ?>
-    <?php $width = $sett['width']; ?>
-    <?php $height = $sett['height']; ?>
-
-    <?php foreach($item as $tip) { ?>
-        <?php $url = $tip['k_url']; ?>
-        <?php $img = $tip['k_img']; ?>
-        <a href="<?php echo $url ?>" target="_blank"><img class="mySlides" src="oc-content/plugins/banner/media/<?php echo $img ?>" style="width:<?php echo $width ?>;height:<?php echo $height ?>"></a>
-    <?php } ?>
-<script>
-    var myIndex = 0;
-    carousel();
 </script>
 
 <?php }
