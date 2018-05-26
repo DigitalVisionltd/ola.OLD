@@ -68,15 +68,7 @@
 ?>
 <?php osc_current_web_theme_path('header.php') ; ?>
 
-<?php /* KYR START DISPLAY CATEGORIES CAROUSEL ON TOP */ 
-$category = osc_search_category_id();
-if (count($category) != 0){
-    $a = implode(',',$category);
-    if( function_exists('reklama') ){
-        reklama($a);
-    }
-}
-/* KYR END CAROUSEL */ ?>
+<?php osc_run_hook('show_banners'); ?>
 
 <div class="row">
   <?php osc_current_web_theme_path('search-sidebar.php') ; ?>
