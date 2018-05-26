@@ -84,6 +84,14 @@ osc_add_admin_submenu_page(
 
 osc_add_admin_submenu_page(
    'banner_menu',
+   __('Settings'),
+   osc_admin_render_plugin_url(osc_plugin_folder(__FILE__) . 'admin/settings.php'),
+   'settings_submenu',
+   'admin'
+) ;
+
+osc_add_admin_submenu_page(
+   'banner_menu',
    __('Help'),
    osc_admin_render_plugin_url(osc_plugin_folder(__FILE__) . 'admin/help.php'),
    'help_submenu',
