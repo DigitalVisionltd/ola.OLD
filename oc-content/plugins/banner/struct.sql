@@ -16,4 +16,4 @@ CREATE TABLE /*TABLE_PREFIX*/t_banner_s (
 INSERT INTO /*TABLE_PREFIX*/t_banner_s
     (width, height, timeout)
 VALUES
-    (800, 120, 3000);
+    (1000, 150, 3500);
