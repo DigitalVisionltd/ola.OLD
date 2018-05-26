@@ -68,4 +68,3 @@ if(isset($_POST["submit"])){
         header("Location: index.php?page=plugins&action=renderplugin&file=banner/admin/settings.php");
 }
 ?>
-

@@ -107,6 +107,9 @@ osc_add_admin_submenu_page(
 ?>
 
 <?php /* Script to cycle the images carousel style */
+    $conn = getConnection();
+    $sett = $conn->osc_dbFetchResult("SELECT * FROM oc_t_banner_s");
+    $timeout = $sett['timeout'];
 {?>
 <script>
 function carousel() {
@@ -118,7 +121,7 @@ function carousel() {
     myIndex++;
     if (myIndex > x.length) {myIndex = 1}
     x[myIndex-1].style.display = "block";
-    setTimeout(carousel, 3000); // Change image every 3 seconds
+    setTimeout(carousel, <?php echo $timeout ?>); // Change image every 3 seconds
 }
 </script>
 <?php }
@@ -128,10 +131,15 @@ function carousel() {
 function reklama($cat_id) { ?>
     <?php $conn = getConnection(); ?>
     <?php $item = $conn->osc_dbFetchResults("SELECT * FROM oc_t_banner WHERE k_cat_id = '%d'", $cat_id); ?>
+
+    <?php $sett = $conn->osc_dbFetchResult("SELECT * FROM oc_t_banner_s"); ?>
+    <?php $width = $sett['width']; ?>
+    <?php $height = $sett['height']; ?>
+
     <?php foreach($item as $tip) { ?>
         <?php $url = $tip['k_url']; ?>
         <?php $img = $tip['k_img']; ?>
-        <a href="<?php echo $url ?>" target="_blank"><img class="mySlides" src="oc-content/plugins/banner/media/<?php echo $img ?>" style="width:800px;height:130px"></a>
+        <a href="<?php echo $url ?>" target="_blank"><img class="mySlides" src="oc-content/plugins/banner/media/<?php echo $img ?>" style="width:<?php echo $width ?>;height:<?php echo $height ?>"></a>
     <?php } ?>
 <script>
     var myIndex = 0;
