@@ -30,17 +30,7 @@
                 <br/>
                 <h3><?php _e('How to use?', 'banner');?></h3>
                 <p><?php _e('Add following code into your theme file, in <code>search.php</code>', 'banner');?></p>
-
-<pre>&lt;?php
-$category = osc_search_category_id();
-if (count($category) != 0){
-    $a = implode(&#39;,&#39;,$category);
-    if( function_exists('reklama') ){
-        reklama($a);
-    }
-}
-?&gt;</pre>
-
+                <pre>&lt;?php osc_run_hook('show_banners'); ?&gt;</pre>
                 <br />
                 <p><?php _e('That\'s all folks!', 'banner');?></p>
                 <br />
