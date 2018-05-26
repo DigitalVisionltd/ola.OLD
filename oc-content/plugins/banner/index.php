@@ -17,7 +17,7 @@ function banner_install()
     // Insert here the code you want to execute after the plugin installation
     // for example you might want to create a table or modify some values
 
-    // In this case we'll create a table to store the Example attributes
+    // In this case we'll create a table
     $conn = getConnection() ;
     $conn->autocommit(false);
     try {
@@ -34,13 +34,10 @@ function banner_install()
 
 function banner_uninstall() {
     // Insert here the code you want to execute after the plugin's uninstall
-    // for example you might want to drop/remove a table or modify some values
-	
-    // In this case we'll remove the table we created to store Example attributes
+    // In this case we'll remove the table we created
     $conn = getConnection() ;
     $conn->autocommit(false);
     try {
-//        $conn->osc_dbExec("DELETE FROM %st_plugin_category WHERE s_plugin_name = 'myown_plugin'", DB_TABLE_PREFIX);
         $conn->osc_dbExec('DROP TABLE %st_banner', DB_TABLE_PREFIX);
         $conn->commit();
     } catch (Exception $e) {
@@ -65,38 +62,8 @@ function style_admin_menu() { ?>
 
 osc_add_hook('admin_header','style_admin_menu');
 
-osc_add_route('banner', 'banner/([a-zA-Z]+)', 'banner/{message}', osc_plugin_folder(__FILE__).'banner.php');
-osc_add_route('view', 'view/([a-zA-Z]+)', 'view/{message}', osc_plugin_folder(__FILE__).'view.php');
-osc_add_route('delete', 'delete/([a-zA-Z]+)', 'delete/{message}', osc_plugin_folder(__FILE__).'delete.php');
-
 //osc_add_route('help', 'help/([a-zA-Z]+)', 'help/{message}', osc_plugin_folder(__FILE__).'help.php');
-
-  $bannerUrl = osc_route_url('banner');
-  $viewUrl = osc_route_url('view');
-  $delUrl = osc_route_url('delete');
-
 //  $helpUrl = osc_route_url('help');
-
-
-/* kyr START OLD MENU ------------------------------------------------------------------ *
-
-osc_add_admin_menu_page(
-   __('Banners'),                               // menu title
-   $viewUrl,                                    // menu url
-   'banner_menu',                               // menu id
-   'moderator'                                  // capability
- ) ;
-
-osc_add_admin_submenu_page(
-   'banner_menu',                               // menu id
-   __('Add banner'),                            // submenu title
-   $bannerUrl,                                  // submenu url
-   'banner_submenu',                            // submenu id
-   'moderator'                                  // capability
- ) ;
-
-/* kyr END ------------------------------------------------------------------------ */
-
 
 /* kyr START NEW MENU -------------------------------------------------------------*/
 
@@ -104,7 +71,7 @@ osc_add_admin_menu_page(
    __('Banners'),                               // menu title
    osc_admin_render_plugin_url(osc_plugin_folder(__FILE__) . 'admin/view.php'),
    'banner_menu',                               // menu id
-   'admin'                                  // capability
+   'admin'                                      // capability
  ) ;
 
 osc_add_admin_submenu_page(
@@ -131,26 +98,57 @@ osc_add_admin_submenu_page(
     osc_add_hook(osc_plugin_path(__FILE__) . '_uninstall', 'banner_uninstall') ;
 ?>
 
-<?php /* the main banner function */
-function reklama($i) {
-    $conn = getConnection();
-    $item = $conn->osc_dbFetchResults("SELECT * FROM oc_t_banner WHERE k_cat_id = '%d'", $i);
-    foreach($item as $tip) {
-        $url = $tip['k_url'];
-        $img = $tip['k_img'];
-        {?>
-        <a href="<?php echo $url ?>" target="_blank"><img class="mySlides" src="oc-content/plugins/banner/media/<?php echo $img ?>" style="width:100%;height:200px"></a>
-        <?php
-    }
-}
-
+<?php /* Script to cycle the images carousel style */
 {?>
-<h2 class="w3-center"></h2> <!--/* afini ena oraio keno kato apo to banner */-->
 <script>
-var myIndex = 0;
-carousel(); <!--/* display images on top of each other */-->
+function carousel() {
+    var i;
+    var x = document.getElementsByClassName("mySlides");
+    for (i = 0; i < x.length; i++) {
+       x[i].style.display = "none";
+    }
+    myIndex++;
+    if (myIndex > x.length) {myIndex = 1}
+    x[myIndex-1].style.display = "block";
+    setTimeout(carousel, 3000); // Change image every 3 seconds
+}
 </script>
 <?php }
+?>
 
-}
+<?php /* the main banner function */
+function reklama($cat_id) { ?>
+    <?php $conn = getConnection(); ?>
+    <?php $item = $conn->osc_dbFetchResults("SELECT * FROM oc_t_banner WHERE k_cat_id = '%d'", $cat_id); ?>
+    <?php foreach($item as $tip) { ?>
+        <?php $url = $tip['k_url']; ?>
+        <?php $img = $tip['k_img']; ?>
+        <a href="<?php echo $url ?>" target="_blank"><img class="mySlides" src="oc-content/plugins/banner/media/<?php echo $img ?>" style="width:800px;height:130px"></a>
+    <?php } ?>
+<script>
+    var myIndex = 0;
+    carousel();
+</script>
+
+<?php }
+?>
+
+<?php /* Call the banners */
+function show_banner() { ?>
+    <div style="text-align:center">
+        <div style="display:inline-block">
+        <?php /* Display banners of the current category ID */
+        $category = osc_search_category_id();
+        if (count($category) != 0){
+            $a = implode(',',$category);
+        if( function_exists('reklama') ){
+            reklama($a);
+        }
+        }
+        ?>
+        </div>
+    </div>
+    <br /> <!--/* Add a line space bellow banners */-->
+<?php }
+    osc_add_hook('show_banners', 'show_banner');
 ?>
