@@ -827,3 +827,6 @@ msgstr "Παρακαλώ συνδεθείτε στον λογαριασμό σα
 
 msgid "Create An Account"
 msgstr "Δημιουργία Λογαριασμού"
+
+msgid "See all ads from this advertiser"
+msgstr "Δείτε όλες τις αγγελίες του"
