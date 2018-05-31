@@ -11,6 +11,13 @@ Plugin update URI: simple-social-share
 */
 
 
+function strip_url() {
+    $url = rawurlencode(osc_item_url());
+    $url = str_replace("https%3A%2F%2F", "", $url);
+    $url = str_replace("www.", "", $url);
+    return $url;
+}
+
 function sss_share_buttons()
 	{
 		?>
@@ -28,7 +35,7 @@ function sss_share_buttons()
 <!-- Email -->
 <a href="<?php echo osc_item_send_friend_url(); ?>" target="_blank" id="sss-share-btn"><img src="<?php echo osc_plugin_url(__FILE__);?>images/email.png" alt="<?php _e('Share by email'); ?>" title="<?php _e('Share by email'); ?>" /></a>
 <!-- Facebook -->
-<a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo rawurlencode(osc_item_url()); ?>&t=<?php echo osc_item_title(); ?>" target="_blank" id="sss-share-btn"><img src="<?php echo osc_plugin_url(__FILE__);?>images/facebook.png" alt="<?php _e('Share on Facebook'); ?>" title="<?php _e('Share on Facebook'); ?>" /></a>
+<a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo strip_url(); ?>&t=<?php echo osc_item_title(); ?>" target="_blank" id="sss-share-btn"><img src="<?php echo osc_plugin_url(__FILE__);?>images/facebook.png" alt="<?php _e('Share on Facebook'); ?>" title="<?php _e('Share on Facebook'); ?>" /></a>
 <!-- Twitter -->
 <a href="https://twitter.com/share?url=<?php echo rawurlencode(osc_item_url()); ?>&text=<?php echo osc_item_title(); ?>" target="_blank" id="sss-share-btn"><img src="<?php echo osc_plugin_url(__FILE__);?>images/twitter.png" alt="<?php _e('Share on Twitter'); ?>" title="<?php _e('Share on Twitter'); ?>" /></a>
 <!-- Google+ -->
