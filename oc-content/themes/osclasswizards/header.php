@@ -239,21 +239,3 @@ $(window).scroll(function() {
 <div class="ads_header ads-headers"> <?php echo osc_get_preference('header-728x90', 'osclasswizards_theme'); ?> </div>
 <?php } ?>
 <div id="main">
-
-<?php /* KYR START OF CATEGORIES CAROUSEL DISPLAY FUNCTION (running as html code) */
-{?>
-<script>
-function carousel() {
-    var i;
-    var x = document.getElementsByClassName("mySlides");
-    for (i = 0; i < x.length; i++) {
-       x[i].style.display = "none";
-    }
-    myIndex++;
-    if (myIndex > x.length) {myIndex = 1}
-    x[myIndex-1].style.display = "block";
-    setTimeout(carousel, 3000); // Change image every 3 seconds
-}
-</script>
-<?php }
-/* KYR END OF CAROUSEL CODE */ ?>
