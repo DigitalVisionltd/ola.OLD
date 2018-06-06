@@ -119,7 +119,8 @@
           <div class="meta_list">
             <?php while ( osc_has_item_meta() ) { ?>
             <?php if(osc_item_meta_value()!='') { ?>
-            <div class="meta"> <strong><?php echo osc_item_meta_name(); ?>:</strong> <?php echo osc_item_meta_value(); ?> </div>
+            <div class="meta"> <strong><?php echo osc_item_meta_name(); ?>:</strong> <?php echo str_replace('<a href','<a target="_blank" href',osc_item_meta_value()); ?> </div>
+				<!-- <strong><?php echo osc_item_meta_name(); ?>:</strong> <?php echo osc_item_meta_value(); ?> </div> -->
             <?php } ?>
             <?php } ?>
           </div>
